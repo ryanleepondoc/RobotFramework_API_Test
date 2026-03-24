@@ -13,8 +13,9 @@ Get pet record by id
     Given an existing pet record
     When get pet by id request is sent
     Then get pet by id response is successful
-    And get pet response should contain the correct     id
-    And get pet response should contain the correct     name
+    And add pet response should contain
+    ...     name::$pet_name
+    ...     category::name::$pet_category
 
 
 Get record of a non-existing pet id
