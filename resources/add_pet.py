@@ -3,10 +3,13 @@ import random
 from faker import Faker
 
 
-def submit_add_pet_request(url):
+def submit_add_pet_request(url, pet_name=None, pet_category=None):
     pet_id = random.randint(1, 1000)
     fake = Faker()
-    pet_name = fake.first_name()
+    if pet_name is None:
+        pet_name = fake.first_name()
+    if pet_category is None:
+        pet_category = "Unknown"
 
     headers = {
         'Accept': 'application/json',
@@ -16,7 +19,7 @@ def submit_add_pet_request(url):
             "id": pet_id,
             "category": {
                 "id": 0,
-                "name": "dog"
+                "name": pet_category
             },
             "name": pet_name,
             "photoUrls": [
@@ -40,3 +43,11 @@ def submit_add_pet_request(url):
 
 def generate_random_integer():
     return random.randint(1, 1000)
+
+
+def generate_pet_details():
+    fake = Faker()
+    pet_name = fake.first_name()
+    pet_category = "Unknown"
+
+    return pet_name, pet_category
