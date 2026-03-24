@@ -10,9 +10,8 @@ def validate_response_body(actual_response_body, key, expected_value):
 
 
 def validate_response_contains_sub_map(actual_response, sub_map_pattern):
-    for pattern in sub_map_pattern:
-        expected_json = convert_to_json(pattern)
-        assert is_subset(expected_json, actual_response), "Pattern not found in JSON"
+    expected_json = convert_to_json(sub_map_pattern)
+    assert is_subset(expected_json, actual_response), "Pattern not found in JSON"
 
 
 def set_nested(d, keys, value):

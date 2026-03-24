@@ -22,5 +22,5 @@ Add new pet
     When add pet request is sent
     Then add pet response should be successful
     And add pet response should contain
-    ...     name::${pet_name}
-    ...     category::name::${pet_category}
+    ...     name::$pet_name
+    ...     category::name::$pet_category

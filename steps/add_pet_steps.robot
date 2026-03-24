@@ -14,6 +14,7 @@ an unregistered pet with name and category of
     set context value    pet_category       ${pet_category}
 
 
+
 add pet request is sent
     ${url} =    set variable    ${base_url}${add_pet_path}
     ${pet_name} =       get context value    pet_name
@@ -43,7 +44,10 @@ add pet response should contain
     [Arguments]    @{input_pattern}
     ${result} =     get context value   add_pet_result
     ${response_body} =      evaluate    $result.json()
-    validate response contains sub map    ${response_body}     ${input_pattern}
+    FOR     ${pattern}      IN    @{input_pattern}
+        ${resolved} =    resolve pattern    ${pattern}
+    END
+    validate response contains sub map    ${response_body}     ${resolved}
 
 
 an existing pet record
