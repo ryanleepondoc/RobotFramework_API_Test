@@ -1,6 +1,4 @@
-===================================
-Robot Framework API Test Automation
-===================================
+**Robot Framework API Test Automation**
 This project is a REST API test automation framework built using Robot Framework. It is designed to validate API endpoints through reusable, maintainable, and scalable test cases.
 
 --------
