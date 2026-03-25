@@ -33,5 +33,5 @@ update pet response should contain correct
 update pet response should match schema
     ${result} =     get context value   update_pet_result
     ${response_body} =      evaluate    $result.json()
-    ${schema} =     Load JSON From File     ${pet_schema_filepath}
+    ${schema} =     Load JSON From File     ${update_pet_schema_filepath}
     validate json schema    ${response_body}    ${schema}

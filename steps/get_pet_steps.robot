@@ -40,5 +40,5 @@ get pet response should be error
 get pet response should match schema
     ${result} =     get context value   get_pet_result
     ${response_body} =      evaluate    $result.json()
-    ${schema} =     Load JSON From File     ${pet_schema_filepath}
+    ${schema} =     Load JSON From File     ${get_pet_schema_filepath}
     validate json schema    ${response_body}    ${schema}

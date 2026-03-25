@@ -44,7 +44,7 @@ add pet response should contain correct
 add pet response should match schema
     ${result} =     get context value   add_pet_result
     ${response_body} =      evaluate    $result.json()
-    ${schema} =     Load JSON From File     ${pet_schema_filepath}
+    ${schema} =     Load JSON From File     ${add_pet_schema_filepath}
     validate json schema    ${response_body}    ${schema}
 
 
