@@ -1,4 +1,5 @@
 from assertpy import assert_that
+from jsonschema import validate
 
 
 def validate_response_status_code(expected_status_code, actual_status_code):
@@ -67,3 +68,7 @@ def is_subset(expected, actual):
         return True
     else:
         return expected == actual
+
+
+def validate_json_schema(response_json, schema):
+    validate(instance=response_json, schema=schema)

@@ -21,6 +21,7 @@ Add new pet
     Given an unregistered pet with name and category of      ${pet_name}    ${pet_category}
     When add pet request is sent
     Then add pet response should be successful
+    And add pet response should match schema
     And add pet response should contain
     ...     name::$pet_name
     ...     category::name::$pet_category

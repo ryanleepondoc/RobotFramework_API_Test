@@ -1,5 +1,6 @@
 *** Settings ***
 Library                     Collections
+Library                     JSONLibrary
 Library                     String
 Library                     ../resources/add_pet.py
 Library                     ../resources/validations.py
@@ -38,6 +39,13 @@ add pet response should contain correct
     ${expected_value} =     get context value   pet_${key}
     ${response_body} =      evaluate    $result.json()
     validate response body    ${response_body}     ${key}     ${expected_value}
+
+
+add pet response should match schema
+    ${result} =     get context value   add_pet_result
+    ${response_body} =      evaluate    $result.json()
+    ${schema} =     Load JSON From File     ${pet_schema_filepath}
+    validate json schema    ${response_body}    ${schema}
 
 
 add pet response should contain
