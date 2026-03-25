@@ -16,6 +16,6 @@ Features
 ----------
 Tech Stack
 ----------
-Robot Framework
-Python
-JSON
+- Robot Framework
+- Python
+- JSON
